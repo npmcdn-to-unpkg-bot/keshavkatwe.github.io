@@ -11,8 +11,10 @@
     "test",
     "tests"
   ],
-  "dependencies": {"fontawesome": "4.6.3",
+  "dependencies": {
+    "fontawesome": "4.6.3",
     "bootstrap": "3.3.6",
-    "font-awesome": "fontawesome#4.6.3"
+    "font-awesome": "fontawesome#4.6.3",
+    "isotope": "3.0.0"
   }
 }

@@ -1,34 +1,90 @@
-//Header
-.navbar-default
+header
 {
-    background-color: transparent;
-    border: 0;
-    margin: 15px 0;
-    
-    .navbar-brand
+    .navbar-default
     {
-        font-family: 'Fredoka One', cursive;
-        color: $grey;
-        font-size: 25px;
-        
-        
-        span
+        background-color: transparent;
+        border: 0;
+        margin: 15px 0;
+        @include animate(all);
+
+        .navbar-brand
         {
-            color: $themePrimaryColor;
+            font-family: 'Fredoka One', cursive;
+            color: $grey;
+            font-size: 25px;
+
+
+            span
+            {
+                color: $themePrimaryColor;
+            }
+        }
+
+        .navbar-nav
+        {
+
+            li
+            {
+                a
+                {
+                    font-size: 14px;
+                    color: $grey;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    @include animate(all);
+                }
+            }
         }
     }
-    
-    .navbar-nav
+
+    &.active
     {
-        
+        .navbar-default
+        {
+            background-color: $white;
+            margin: 0;
+            box-shadow: 0px 0px 1px 1px #D4D4D4;
+
+            .navbar-nav > li > a
+            {
+                color: #3d4451;
+            }
+        }
+    }
+}
+
+footer
+{
+    text-align: center;
+    margin-top: 30px;
+
+    ul
+    {
+        display: inline-block;
+        padding: 0;
+        list-style: none;
+
         li
         {
+            float: left;
+
             a
             {
-                font-size: 14px;
                 color: $grey;
-                font-weight: bold;
-                text-transform: uppercase;
+                font-size: 20px;
+
+                height: 40px;
+                width: 40px;
+                display: inline-block;
+                line-height: 40px;
+                margin: 20px 30px;
+                border-radius: 50%;
+                @include animate(all);
+
+                &:hover, &:focus, &:active
+                    {
+                    background-color: rgba(0, 0, 0, 0.15);
+                }
             }
         }
     }

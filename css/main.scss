@@ -12,7 +12,10 @@ $white:#FFFFFF;
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
+"animations",
 "base",
 "layout",
-"home"
+"home",
+"timeline",
+"inputs"
 ;

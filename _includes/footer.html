@@ -1,3 +1,13 @@
+<footer>
+    <ul>
+        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+        <li><a href="#"><i class="fa fa-github"></i></a></li>
+        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+    </ul>
+</footer>
+
 <!--<footer class="site-footer">
 
   <div class="wrapper">
@@ -39,3 +49,23 @@
 
 <script src="/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script>
+    $(".material-form .form-control").focusin(function () {
+        $(this).parents('.form-group').addClass('active');
+    });
+    $(".material-form .form-control").focusout(function () {
+        if ($(this).val().length <= 0)
+        {
+            $(this).parents('.form-group').removeClass('active');
+        }
+    });
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            $("header").addClass('active');
+        } else {
+            $("header").removeClass('active');
+        }
+    });
+</script>
