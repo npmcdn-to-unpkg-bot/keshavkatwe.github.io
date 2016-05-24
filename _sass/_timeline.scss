@@ -18,6 +18,12 @@
         margin-left: -2.5px;
         margin-top: 50px;
         margin-bottom: 50px;
+
+
+        @include respond-to(xs)
+        {
+            left: 5px;
+        }
     }
 
 
@@ -27,6 +33,15 @@
         width: 50%;
         float: left;
         clear: left;
+
+        @include respond-to(xs)
+        {
+            margin-bottom: 0px;
+            position: relative;
+            width:100%;
+            float: left;
+            clear: left;
+        }
 
         &:before, &:after {
             content:" ";
@@ -45,9 +60,19 @@
             float: left;
             border-top: 4px solid $themePrimaryColor;
             box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
-            
+
             background: #ffffff;
             position: relative;
+
+            @include respond-to(xs)
+            {
+                width: calc(100% - 33px);
+                width: -moz-calc(100% - 33px);
+                width: -webkit-calc(100% - 33px);
+                float: right;
+                
+            }
+
 
             &:before {
                 position: absolute;
@@ -59,7 +84,13 @@
                 border-right: 0 solid #dcdcdc;
                 border-bottom: 15px solid transparent;
                 content:" ";
-                
+
+                @include respond-to(xs) {
+                    border-left-width: 0;
+                    border-right-width: 15px;
+                    left: -15px;
+                    right: auto;
+                }
             }
 
 
@@ -73,6 +104,13 @@
                 border-right: 0 solid #ffffff;
                 border-bottom: 14px solid transparent;
                 content:" ";
+
+                @include respond-to(xs) {
+                    border-left-width: 0;
+                    border-right-width: 14px;
+                    left: -13px;
+                    right: auto;
+                }
             }
         }
 
@@ -87,6 +125,12 @@
             top: 20px;
             right: -12px;
             z-index: 100;
+
+            @include respond-to(xs){
+                left: -7px;
+                margin-left: 0;
+                top: 20px;
+            }
 
 
             > a {
@@ -104,6 +148,13 @@
             float: right;
             clear: right;
 
+            @include respond-to(xs){
+                float: left;
+                clear: left;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+
             > .timeline-panel {
                 float: right;
 
@@ -116,7 +167,7 @@
                 &:after {
                     border-left-width: 0;
                     border-right-width: 14px;
-                    left: -14px;
+                    left: -13px;
                     right: auto;
                 }
             }
@@ -124,12 +175,16 @@
 
             > .timeline-badge {
                 left: -12px;
+
+                @include respond-to(xs) {
+                    left: -7px;
+                }
             }
         }
 
-        &:nth-child(2) {
+/*        &:nth-child(2) {
             margin-top: 60px;
-        }
+        }*/
     }
 }
 
@@ -140,49 +195,4 @@
 .no-float {
     float: none !important;
 }
-@media (max-width: 767px) {
-    ul.timeline:before {
-        left: 40px;
-    }
-    ul.timeline > li {
-        margin-bottom: 0px;
-        position: relative;
-        width:100%;
-        float: left;
-        clear: left;
-    }
-    ul.timeline > li > .timeline-panel {
-        width: calc(100% - 65px);
-        width: -moz-calc(100% - 65px);
-        width: -webkit-calc(100% - 65px);
-    }
-    ul.timeline > li > .timeline-badge {
-        left: 28px;
-        margin-left: 0;
-        top: 16px;
-    }
-    ul.timeline > li > .timeline-panel {
-        float: right;
-    }
-    ul.timeline > li > .timeline-panel:before {
-        border-left-width: 0;
-        border-right-width: 15px;
-        left: -15px;
-        right: auto;
-    }
-    ul.timeline > li > .timeline-panel:after {
-        border-left-width: 0;
-        border-right-width: 14px;
-        left: -14px;
-        right: auto;
-    }
-    .timeline > li.timeline-inverted {
-        float: left;
-        clear: left;
-        margin-top: 30px;
-        margin-bottom: 30px;
-    }
-    .timeline > li.timeline-inverted > .timeline-badge {
-        left: 28px;
-    }
-}
+

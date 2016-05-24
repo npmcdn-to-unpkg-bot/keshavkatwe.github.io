@@ -25,6 +25,22 @@
             color:#3d4451;
             padding-bottom: 0;
 
+
+            @include respond-to(xs)
+            {
+                padding: 20px;
+                padding-bottom: 0;
+                margin: 120px auto;
+            }
+
+            .profile-preword
+            {
+                @include respond-to(xs)
+                {
+                    margin-top: 25px;
+                }
+            }
+
             .helloicon
             {
                 position: relative;
@@ -32,6 +48,11 @@
                 color: $white;
                 text-transform: uppercase;
                 padding: 5px 10px;
+
+                @include respond-to(xs)
+                {
+                    margin-top: 20px;
+                }
 
                 &:before
                     {
@@ -50,6 +71,7 @@
             h1
             {
                 margin-bottom: 0;
+                text-transform: capitalize;
             }
 
             .job-desp
@@ -87,6 +109,12 @@
                 margin-right: -30px;
                 text-align: center;
 
+
+                @include respond-to(xs)
+                {
+                    margin-left: -20px;
+                    margin-right: -20px;
+                }
                 ul
                 {
                     display: inline-block;
@@ -110,6 +138,11 @@
                             border-radius: 50%;
                             @include animate(all);
 
+                            @include respond-to(xs)
+                            {
+                                margin: 20px 10px;
+                            }
+
                             &:hover, &:focus, &:active
                                 {
                                 background-color: rgba(0, 0, 0, 0.15);
@@ -125,6 +158,11 @@
 .about
 {
     padding-top: 120px;
+
+    @include respond-to(xs)
+    {
+        padding-top: 530px;
+    }
 
     .btn-default
     {
@@ -161,6 +199,10 @@
         box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
         padding: 0 40px;
 
+        @include respond-to(xs){
+            padding: 0 20px;
+        }
+
         .grp
         {
             margin: 30px 0;
@@ -192,6 +234,11 @@
         .timeline-panel
         {
             padding: 20px 25px;
+
+            @include respond-to(xs){
+                padding: 15px 20px;
+            }
+
 
             .year
             {
@@ -232,7 +279,7 @@
 
 .education
 {
-    margin-top: 50px;
+    margin-top: 0px;
     h1
     {
         margin-bottom: 30px;
@@ -304,9 +351,21 @@
         background-color: $white;
         box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
 
+        @include respond-to(xs)
+        {
+            height: auto;
+            margin-bottom: 25px;
+        }
+
         .content
         {
             padding: 30px 40px;
+
+            @include respond-to(xs)
+            {
+                padding: 20px 25px;
+            }
+
             h4
             {
                 font-size: 20px;
@@ -328,6 +387,11 @@
                     text-transform: uppercase;
                     font-size: 12px;
                     width: 100px;
+                    
+                    @include respond-to(xs)
+                    {
+                        float: left;
+                    }
                 }
 
                 dd

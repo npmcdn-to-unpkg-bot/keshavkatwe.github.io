@@ -1,10 +1,8 @@
 <footer>
     <ul>
-        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-        <li><a href="#"><i class="fa fa-github"></i></a></li>
-        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+        {% for social in site.data.sociallinks %}
+        <li><a href="{{social.link}}" target="_blank">{{social.icon}}</a></li>
+        {% endfor %}
     </ul>
 </footer>
 
@@ -49,23 +47,31 @@
 
 <script src="/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/bower_components/jQuery-One-Page-Nav/jquery.nav.js"></script>
 
 <script>
-    $(".material-form .form-control").focusin(function () {
-        $(this).parents('.form-group').addClass('active');
-    });
-    $(".material-form .form-control").focusout(function () {
-        if ($(this).val().length <= 0)
-        {
-            $(this).parents('.form-group').removeClass('active');
-        }
-    });
+$(".material-form .form-control").focusin(function () {
+    $(this).parents('.form-group').addClass('active');
+});
+$(".material-form .form-control").focusout(function () {
+    if ($(this).val().length <= 0)
+    {
+        $(this).parents('.form-group').removeClass('active');
+    }
+});
 
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 100) {
-            $("header").addClass('active');
-        } else {
-            $("header").removeClass('active');
-        }
+$(document).ready(function () {
+    $('#nav').onePageNav({
+        "currentClass": "active",
+        scrollOffset: 50,
     });
+});
+
+$(window).scroll(function () {
+    if ($(this).scrollTop() > 80) {
+        $("header").addClass('active');
+    } else {
+        $("header").removeClass('active');
+    }
+});
 </script>
