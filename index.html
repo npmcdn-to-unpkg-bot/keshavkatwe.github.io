@@ -8,7 +8,7 @@ layout: default
             <div class="short-about-me">
                 <div class="row">
                     <div class="col-md-5 col-sm-5">
-                        <img class="img-responsive" src="/img/dp.jpg"/>
+                        <img class="img-responsive" alt="Profile Pic" src="/img/dp.jpg"/>
                     </div>
                     <div class="col-md-7 col-sm-7">
                         <div>
@@ -17,22 +17,28 @@ layout: default
                             </div>
                             <div class="clearfix"></div>
                             <h1>I'm <strong>{{ site.firstname | escape }}</strong></h1>
-                            <p class="job-desp">Web Design and Developer</p>
+                            <p class="job-desp" itemprop="jobtitle">Web Design and Developer</p>
                             <hr/>
+
                             <dl class="dl-horizontal">
                                 <dt>E-Mail</dt>
-                                <dd>{{ site.email | escape }}</dd>
+                                <dd><div itemprop="email">{{ site.email | escape }}</div></dd>
                                 <dt>Mobile</dt>
-                                <dd>{{ site.mobile | escape }}</dd>
+                                <dd><div itemprop="telephone">{{ site.mobile | escape }}</div></dd>
                                 <dt>Date of birth</dt>
-                                <dd>{{ site.dob | escape }}</dd>
+                                <dd><meta itemprop="birthDate" content="{{ site.dob | escape }}">{{ site.dob | escape }}</dd>
                                 <dt>Address</dt>
                                 <dd>
-                                    <address>
-                                        S/o Manjunath Katwe<br>
-                                        #61, Bhuvaneshwari nagar, near Ramesh Bhawan, Keshwapur<br>
-                                        Hubli, Karnataka 580020<br>
-                                    </address>
+                                    <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                                        <address>
+                                            <span itemprop="streetAddress">S/o Manjunath Katwe #61, Bhuvaneshwari nagar, near Ramesh Bhawan, Keshwapur</span>
+                                            <div>
+                                                <span itemprop="addressLocality">Hubli</span>, <span itemprop="addressRegion">Karnataka <span itemprop="postalCode">580020</span></span>
+                                            </div>
+
+                                            <div itemprop="addressCountry" class="hidden">India</div>
+                                        </address>
+                                    </div>
                                 </dd>
                             </dl>
                         </div>
@@ -41,7 +47,7 @@ layout: default
                 <div class="social-shares">
                     <ul>
                         {% for social in site.data.sociallinks %}
-                        <li><a href="{{social.link}}" target="_blank">{{social.icon}}</a></li>
+                        <li><a href="{{social.link}}" target="_blank" rel="me">{{social.icon}}</a></li>
                         {% endfor %}
                     </ul>
                 </div>
@@ -54,7 +60,7 @@ layout: default
 <section class="about container">
     <div class="text-center">
         <button class="btn btn-default btn-lg">Download Resume</button>
-        <p class="about-me-long">Hello! I’m Keshav Katwe. I am a Web Developer specializing in front end development. I always been working with many technologies related to Web and also learning new ways to make better web experience. Well-versed in numerous programming languages including PHP, MYSQL, HTML, CSS, Javascript and many more. Always passionate to try new things.</p>
+        <p class="about-me-long" itemprop="description">Hello! I’m Keshav Katwe. I am a Web Developer specializing in front end development. I always been working with many technologies related to Web and also learning new ways to make better web experience. Well-versed in numerous programming languages including PHP, MYSQL, HTML, CSS, Javascript and many more. Always passionate to try new things.</p>
     </div>
 </section>
 <section class="container professional-skills" id="skills">
@@ -89,13 +95,13 @@ layout: default
 
     <ul class="timeline">
         {% for experience in site.data.experiences %}
-        <li>
+        <li itemscope itemtype="http://schema.org/Organization">
             <div class="timeline-badge">
                 <a><i class="fa fa-circle" id=""></i></a>
             </div>
             <div class="timeline-panel">
                 <p class="year">{{experience.year}}</p>
-                <a class="company-name" href="{{experience.link}}" target="_blank">{{experience.name}}</a>
+                <a itemprop="name" class="company-name" href="{{experience.link}}" target="_blank">{{experience.name}}</a>
                 <p class="designation">{{experience.designation}}</p>
                 <p class="description">{{experience.profile}}</p>
             </div>
