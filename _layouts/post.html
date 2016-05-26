@@ -15,30 +15,35 @@ layout: default
             <div class="col-md-8">
 
                 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-                    <figure>
-                        <img src="{{ page.thumbnail }}"/>
-                    </figure>
-                    <div class="caption">
-                        <header class="post-header">
-                            {% for category in page.categories %}
-                            <a class="category">#{{ category }}</a>
-                            {% endfor %}
-                            <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
-                            <p class="post-meta">
-                                <time class="hidden" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>
-                                {% if page.author %}<i class="fa fa-user"></i> by 
-                                <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-                                    <span itemprop="name">{{ page.author }}</span>
-                                </span>
-                                {% endif %}
-                            </p>
-                        </header>
+                    <header class="post-header">
+                        <figure>
+                            <img src="{{ page.thumbnail }}"/>
+                        </figure>
+                        {% for category in page.categories %}
+                        <a class="category">#{{ category }}</a>
+                        {% endfor %}
+                        <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
+                        <p class="post-meta">
+                            <time class="hidden" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>
+                            {% if page.author %}<i class="fa fa-user"></i> by 
+                            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                <span itemprop="name">{{ page.author }}</span>
+                            </span>
+                            {% endif %}
+                        </p>
+                    </header>
 
+
+
+                    <div class="caption">
                         <div class="post-content" itemprop="articleBody">
                             {{ content }}
                         </div>
                     </div>
 
+                    <footer>
+                        {% include shares.html title=page.title thumbnail=page.thumbnail %}
+                    </footer>
                 </article>
             </div>
             <div class="col-md-4">

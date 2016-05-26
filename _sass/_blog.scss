@@ -104,49 +104,55 @@
         box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
         background-color: $white;
 
-        figure
+
+
+        .post-header
         {
-            img
+            text-align: center;
+
+            figure
             {
-                width: 100%;
+                margin-bottom: 10px;
+                img
+                {
+                    width: 100%;
+                }
             }
+
+            .category
+            {
+                color: #5F5F5F;
+                text-transform: uppercase;
+                font-size: 12px;
+                font-weight: 700;
+            }
+
+            .post-title
+            {
+                color: #1F1F1F;
+                text-transform: uppercase;
+                font-size: 24px;
+                margin: 26px 50px;
+                font-weight: 600;
+            }
+
+            .post-meta
+            {
+                color: $grey;
+                font-weight: 400;
+            }
+
+
         }
 
         .caption
         {
-            padding: 40px 35px;
-
-            .post-header
-            {
-                text-align: center;
-                .category
-                {
-                    color: #5F5F5F;
-                    text-transform: uppercase;
-                    font-size: 12px;
-                    font-weight: 700;
-                }
-
-                .post-title
-                {
-                    color: #1F1F1F;
-                    text-transform: uppercase;
-                    font-size: 24px;
-                    margin: 26px 50px;
-                    font-weight: 600;
-                }
-
-                .post-meta
-                {
-                    color: $grey;
-                    font-weight: 400;
-                }
+            padding: 20px 30px;
 
 
-            }
             .post-content
             {
-                margin-top: 27px;
+                margin-top: 0;
                 font-size: 16px;
 
 
@@ -196,6 +202,11 @@
                     list-style: square;
                 }
             }
+        }
+
+        footer
+        {
+
         }
     }
 }
