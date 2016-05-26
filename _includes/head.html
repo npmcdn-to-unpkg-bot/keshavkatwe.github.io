@@ -41,7 +41,7 @@
     {% if page.title %}
     <meta property="og:type" content="article" />
     {% endif %}
-    <meta property="og:url" content="{{page.url | prepend: site.baseurl}}" />
+    <meta property="og:url" content="{{page.url | prepend: site.baseurl | prepend: site.url}}" />
     <meta property="og:image" content="{% if page.thumbnail %}{{ page.thumbnail}}{% else %}{{ site.thumbnail }}{% endif %}" />
     <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" /> 
     <meta property="og:site_name" content="Keshav Katwe" />
