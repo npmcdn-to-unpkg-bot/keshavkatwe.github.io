@@ -25,3 +25,11 @@ url: "http://keshavkatwe.github.io" # the base hostname & protocol for your site
 # Build settings
 markdown: kramdown
 exclude: [node_modules, gulpfile.js]
+
+permalink:     '/blog/:year/:title/'
+paginate_path: '/blog/page:num/'
+
+collections:
+  projects:
+    output: true
+    permalink: /project/:title/

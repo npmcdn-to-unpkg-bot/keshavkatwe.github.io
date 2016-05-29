@@ -87,9 +87,52 @@ layout: default
         </div>
     </div>
 </section>
-<section class="container portfolio hidden" id="portfolio">
+<section class="container portfolio" id="portfolio">
     <h1 class="text-center">Portfolio</h1>
+    <div>
+
+        <div class="text-center">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#all" aria-controls="all" role="tab" data-toggle="tab">All</a></li>
+                <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+                <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+                <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+            </ul>
+        </div>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="all">
+                <div class="row">
+                    {% for project in site.projects%}
+                    
+                    
+                    <div class="col-md-4">
+                        <figure class="project">
+                            <img src="{{project.thumbnail}}"/>
+                            <figcaption>
+                                <div class="main">
+                                    <h4>{{project.title}}</h4>
+                                    <p class="category">{{project.category}}</p>
+                                    <div class="clearfix"></div>
+                                    <a href="{{ project.url | prepend: site.baseurl }}"><i class="fa fa-link"></i></a>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="profile">...</div>
+            <div role="tabpanel" class="tab-pane" id="messages">...</div>
+            <div role="tabpanel" class="tab-pane" id="settings">...</div>
+        </div>
+
+    </div>
+
 </section>
+
 <section class="container work-experience" id="experience">
     <h1 class="text-center">Work Experience</h1>
 

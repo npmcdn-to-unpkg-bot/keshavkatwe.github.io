@@ -17,7 +17,7 @@ layout: default
                 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
                     <header class="post-header">
                         <figure>
-                            <img src="{{ page.thumbnail }}"/>
+                            <img itemprop="image" src="{{ page.thumbnail }}"/>
                         </figure>
                         {% for category in page.categories %}
                         <a class="category">#{{ category }}</a>
