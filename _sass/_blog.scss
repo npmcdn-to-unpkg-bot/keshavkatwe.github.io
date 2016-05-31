@@ -17,7 +17,7 @@
     }
 }
 
-.blog-content
+.blog-content, .home-blog
 {
     margin-top: -100px;
     .thumbnail
@@ -208,5 +208,15 @@
         {
 
         }
+    }
+}
+
+.home-blog
+{
+    margin-top: 50px;
+
+    h1
+    {
+        margin-bottom: 30px;
     }
 }

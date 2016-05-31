@@ -59,7 +59,7 @@ layout: default
 </section>
 <section class="about container">
     <div class="text-center">
-        <button class="btn btn-default btn-lg">Download Resume</button>
+        <a class="btn btn-default btn-lg" href="#">Download Resume</a>
         <p class="about-me-long" itemprop="description">Hello! I’m Keshav Katwe. I am a Web Developer specializing in front end development. I always been working with many technologies related to Web and also learning new ways to make better web experience. Well-versed in numerous programming languages including PHP, MYSQL, HTML, CSS, Javascript and many more. Always passionate to try new things.</p>
     </div>
 </section>
@@ -95,9 +95,9 @@ layout: default
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active"><a href="#all" aria-controls="all" role="tab" data-toggle="tab">All</a></li>
-                <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-                <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-                <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+                <li role="presentation"><a href="#website" aria-controls="website" role="tab" data-toggle="tab">Websites</a></li>
+                <li role="presentation"><a href="#android" aria-controls="android" role="tab" data-toggle="tab">Android Apps</a></li>
+                <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Games</a></li>
             </ul>
         </div>
 
@@ -105,12 +105,13 @@ layout: default
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="all">
                 <div class="row">
-                    {% for project in site.projects%}
-                    
-                    
+                    {% assign posts = (site.posts | where: "title" , "Welcome to Jekyll!") %}
+                    {% for project in site.projects %}
+
+
                     <div class="col-md-4">
                         <figure class="project">
-                            <img src="{{project.thumbnail}}"/>
+                            <img src="{{project.display-thumbnail}}"/>
                             <figcaption>
                                 <div class="main">
                                     <h4>{{project.title}}</h4>
@@ -124,8 +125,50 @@ layout: default
                     {% endfor %}
                 </div>
             </div>
-            <div role="tabpanel" class="tab-pane" id="profile">...</div>
-            <div role="tabpanel" class="tab-pane" id="messages">...</div>
+            <div role="tabpanel" class="tab-pane" id="website">
+                <div class="row">
+                    {% assign webprojects = (site.projects | where: "language" , "website") %}
+                    {% for project in webprojects %}
+
+
+                    <div class="col-md-4">
+                        <figure class="project">
+                            <img src="{{project.display-thumbnail}}"/>
+                            <figcaption>
+                                <div class="main">
+                                    <h4>{{project.title}}</h4>
+                                    <p class="category">{{project.category}}</p>
+                                    <div class="clearfix"></div>
+                                    <a href="{{ project.url | prepend: site.baseurl }}"><i class="fa fa-link"></i></a>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="android">
+                <div class="row">
+                    {% assign androidprojects = (site.projects | where: "language" , "android") %}
+                    {% for project in androidprojects %}
+
+
+                    <div class="col-md-4">
+                        <figure class="project">
+                            <img src="{{project.display-thumbnail}}"/>
+                            <figcaption>
+                                <div class="main">
+                                    <h4>{{project.title}}</h4>
+                                    <p class="category">{{project.category}}</p>
+                                    <div class="clearfix"></div>
+                                    <a href="{{ project.url | prepend: site.baseurl }}"><i class="fa fa-link"></i></a>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
             <div role="tabpanel" class="tab-pane" id="settings">...</div>
         </div>
 
@@ -182,26 +225,64 @@ layout: default
         <div class="row">
             <div class="col-md-6">
                 <div class="achievement">
-                    <h4>ONE HALF</h4>
-                    <p>
-                        One of the most interesting options is to divide this section to “One half” “One Third” and “One Fourth”. You can use this for Honors or Achievments or Awards sections. You can insert images and photos right in this editor and even add call to action buttons with custom text and links. This is the example of ONE HALF option.
-                    </p>
-                    <a class="btn btn-default">More</a>
+                    <h5>Project “Multi-Touch Reactable” Won Best Engineering Project of the year for
+
+                        2013-14 by K.S.C.S.T conducted in B.V.B.C.E.T.</h5>
+                    <!--<a href="/project/multi-touch-reactable/" class="btn btn-default">More</a>-->
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="achievement">
-                    <h4>ONE HALF</h4>
-                    <p>
-                        Same options for editing works in here as well. You can change edit and design as you wish. This can be useful in case if you have a lot of sections in resume. You can change theme as you wish with this powerful and flexible options.
-                    </p>
-                    <a class="btn btn-default">More</a>
+                    <h5>Won a cash prize of Rs. 9500/- from Microsoft for developing windows 8 apps.</h5>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="achievement">
+                    <h5>Won 1st prize for CRAFT 12, Annual function 2011 ISE, KLEIT.</h5>
+                    <!--<a href="/project/multi-touch-reactable/" class="btn btn-default">More</a>-->
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="achievement">
+                    <h5>Won 1st prize for Poster Design Khushi 2013 ISE, KLEIT.</h5>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
+<section class="container home-blog">
+    <h1 class="text-center">From The Blog</h1>
+    <div class="row">
+        {% for post in site.posts %}
+        <div class="col-md-6">
+            <article class="thumbnail">
+                <figure>
+                    <a href="{{ post.url | prepend: site.baseurl }}">
+                        <img src="{{ post.thumbnail }}" alt="">
+                    </a>
+
+                    <figcaption >
+                        <span class="date">{{ post.date | date: "%-d" }}</span>
+                        <span class="year">{{ post.date | date: "%b" }}</span>
+                    </figcaption>
+                </figure>
+
+                <div class="caption">
+                    {% for category in post.categories %}
+                    <a class="category">#{{ category }}</a>
+                    {% endfor %}
+                    <a class="title" href="{{ post.url | prepend: site.baseurl }}"><h3>{{ post.title }}</h3></a>
+                </div>
+
+
+            </article>
+        </div>
+        {% endfor %}
+    </div>
+</section>
 
 <section class="container contact-us" id="contact">
     <h1 class="text-center">Contact Us</h1>
